@@ -64,3 +64,5 @@ const GlobalMemberStore = (() => {
   return Object.freeze(Store);
 })();
 ```
+
+See the article "[Avoiding global mutable state in browser JS](https://www.joshwulf.com/blog/2020/02/avoid-global-state/)" for a guided tour through the creation of this implementation, with an explanation of each step.
