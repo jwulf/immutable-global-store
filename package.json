@@ -1,0 +1,24 @@
+{
+  "name": "immutable-global-store",
+  "version": "1.0.0",
+  "description": "An immutable global store demo for browser JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwulf/immutable-global-store.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwulf/immutable-global-store/issues"
+  },
+  "homepage": "https://github.com/jwulf/immutable-global-store#readme",
+  "dependencies": {
+    "@types/jest": "^25.1.3",
+    "jest": "^25.1.0"
+  }
+}
