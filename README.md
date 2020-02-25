@@ -1,5 +1,7 @@
 # Avoiding global mutable state in browser JS
 
+![Node.js CI](https://github.com/jwulf/immutable-global-store/workflows/Node.js%20CI/badge.svg)
+
 This is the accompanying repo for the article "[Avoiding global mutable state in browser JS](https://www.joshwulf.com/blog/2020/02/avoid-global-state/)", demonstrating an immutable global store that encapsulates state and business validation rules in [40 lines of code](test.spec.js).
 
 The article is part of my [StackOverflowed series](https://www.joshwulf.com/categories/stackoverflowed/), where I refactor code from StackOverflow questions, with commentary on what I'm doing and why.
