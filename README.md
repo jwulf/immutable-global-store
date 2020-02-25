@@ -24,45 +24,46 @@ Here is the entire implementation:
 
 ```
 const GlobalMemberStore = (() => {
-  let _members = [];
+  let _members = []
   const needsArg = arg => {
     if (!arg) {
-      throw new Error(`Undefined passed as argument to Store!`);
+      throw new Error (`Undefined passed as argument to Store!`)
     }
-    return arg;
-  };
+    return arg
+  }
   const needsId = member => {
     if (!member.id) {
-      throw new Error(`Undefined id on member passed as argument to Store!`);
+      throw new Error (`Undefined id on member passed as argument to Store!`)
     }
-    return member;
-  };
+    return member
+  }
   const Store = {
-    setMembers: members => (_members = members.map(m => ({ ...m }))),
-    getMembers: () => _members.map(m => ({ ...m })),
+    setMembers: members => (_members = members.map(m => ({...m}))),
+    getMembers: () => _members.map(m => ({...m})),
     getMember: id => {
-      const member = _members.filter(m => m.id === id);
-      return member.length === 1
-        ? { found: true, member: { ...member[0] } }
-        : { found: false, member: undefined };
+      const member = _members.filter(m => m.id === id)
+      return member.length === 1 ? 
+        { found: true, member: {...member[0]}} :
+        { found: false, member: undefined }
     },
     putMember: member => {
-      const m = needsId(needsArg(member));
+      const m = needsId(needsArg(member))
       if (Store.getMember(m.id).found) {
-        throw new Error(`${m.id} already exists!`);
+        throw new Error(`${m.id} already exists!`)
       }
-      _members = [..._members, { ...m }];
+      _members = [..._members, {...m}]
     },
     updateMember: update => {
-      const u = needsId(needsArg(update));
+      const u = needsId(needsArg(update))
       if (!Store.getMember(u.id).found) {
-        throw new Error(`${u.id} does not exists!`);
+        throw new Error(`${u.id} does not exists!`)
       }
-      _members = _members.map(m => (m.id === u.id ? update : m));
+      _members = _members.map(m => m.id === u.id ? 
+                              {...update} : m)
     }
-  };
-  return Object.freeze(Store);
-})();
+  }
+  return Object.freeze(Store)
+})()
 ```
 
 See the article "[Avoiding global mutable state in browser JS](https://www.joshwulf.com/blog/2020/02/avoid-global-state/)" for a guided tour through the creation of this implementation, with an explanation of each step.
